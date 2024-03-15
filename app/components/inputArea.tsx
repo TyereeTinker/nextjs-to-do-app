@@ -7,6 +7,10 @@ const InputArea = () => {
     const [desc, setDesc] = useState('');
     const [todo, setTodo] = useState([]);
 
+    const addToDo = () => {
+        
+    }
+
   return (
     <div>
         <div className='bg-gray-800 rounded-md shadow-md w-2/3 min-w-min p-4 flex justify-between items-center'>
