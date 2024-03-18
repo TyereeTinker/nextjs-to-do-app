@@ -1,15 +1,25 @@
 'use client'
 import { useState } from "react";
+import axios from "axios";
 
 const InputArea = () => {
 
     const [title, setTitle] = useState('');
     const [desc, setDesc] = useState('');
-    const [todo, setTodo] = useState([]);
 
-    const addToDo = () => {
-        
+    async function addToDo(title: String, desc: String) {
+        const data = {
+            title,
+            desc
+        }
+        try {
+            const resp = await axios.post("/api/todos", data);
+            console.log(resp.data); // assuming response data contains what you need
+        } catch (error) {
+            console.error("Error adding todo:", error);
+        }
     }
+    
 
   return (
     <div>
@@ -25,7 +35,7 @@ const InputArea = () => {
             </div>
 
             <div className='flex'>
-                <button type='button' className=" mr-1 bg-gray-600 rounded-md shadow-md p-1 hover:bg-slate-400" onClick={() => console.log(title)}> ADD </button>
+                <button type='button' className=" mr-1 bg-gray-600 rounded-md shadow-md p-1 hover:bg-slate-400" onClick={() => addToDo(title, desc)}> ADD </button>
                 <button type='button' className=" bg-gray-600 rounded-md shadow-md p-1 hover:bg-slate-400" onClick={() => setTitle('')}> CLEAR </button>
             </div>
         </div>
