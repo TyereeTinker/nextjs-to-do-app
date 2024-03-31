@@ -1,7 +1,7 @@
 'use client'
 import axios from "axios";
 import { useEffect, useState } from "react"
-import { MdDeleteSweep } from "react-icons/md";
+import { MdDeleteSweep, MdEditSquare } from "react-icons/md";
 
 interface Todo {
   _id: string;
@@ -34,14 +34,21 @@ const TodoArea = () => {
     <div > 
       {todos.map((todo, index) => {
         return(
-          <div className='bg-gray-800 rounded-md shadow-md w-2/3 min-w-min p-4 flex justify-between items-center mt-2'> 
-            <h1> {index + 1} </h1>
-            <h2> TILTE: {todo.TITLE}</h2>
-            <p> {todo.DESCRIPT} </p>
-            <p> {todo._id} </p>
-            <button onClick={() => deleteTodo(todo._id)}>
-              <MdDeleteSweep />
-            </button>
+          <div className='bg-gray-800 rounded-md shadow-md text-white m-4 p-3 flex justify-between w-5/12'>
+            <div className="justify-start"> 
+              <h1> {index + 1}. {todo.TITLE.toUpperCase()} </h1>
+              <h2> </h2>
+              <p> {todo.DESCRIPT} </p>
+              {/*<p> {todo._id} </p>*/}
+            </div>
+            <div className="flex mr-2"> 
+              <button className="mr-2">
+                <MdEditSquare size={40}/>
+              </button>
+              <button onClick={() => deleteTodo(todo._id)}>
+                <MdDeleteSweep size={43}/>
+              </button>
+            </div>
           </div>
         );
       })}

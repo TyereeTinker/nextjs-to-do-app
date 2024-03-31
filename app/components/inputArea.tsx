@@ -23,15 +23,15 @@ const InputArea = () => {
 
   return (
     <div>
-        <div className='bg-gray-800 rounded-md shadow-md w-2/3 min-w-min p-4 flex justify-between items-center'>
+        <div className='bg-gray-800 rounded-md shadow-md min-w-min p-4 w-fit flex items-center text-white'>
             <div className='mr-3'> 
                 <label> TITLE </label>
-                <input type='text' placeholder='New To-Do Title' value={title} onChange={(e) => setTitle(e.target.value)}/> 
+                <input type='text' placeholder='' value={title} onChange={(e) => setTitle(e.target.value)}/> 
             </div>
 
             <div className='mr-3'>
                 <label> DESRCIPTION </label>
-                <input type='text' placeholder='New To-Do Description' value={desc} onChange={(e) => setDesc(e.target.value)}/> 
+                <input type='text' placeholder='' value={desc} onChange={(e) => setDesc(e.target.value)}/> 
             </div>
 
             <div className='flex'>
